@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,15 +44,26 @@ class RestaurantTest {
 
     @Test
     public void order_value_positive_test(){
+        initializeRestaurant();
+        addingMenu();
+        restaurant.addToMenu("Fried Rice",105);
+        restaurant.addToMenu("Vegetable Salad", 230);
         String expectedResult = "454";
-        String actualResult = "";
+        List<String> listOfItemNames = new ArrayList<>();
+        listOfItemNames.add("Fried Rice");
+        listOfItemNames.add("Sweet corn soup");
+        listOfItemNames.add("Vegetable Salad");
+        String actualResult = restaurant.getOrderValue(listOfItemNames);
         assertEquals(expectedResult,actualResult);
     }
 
     @Test
     public void order_value_test_no_items(){
+        initializeRestaurant();
+        addingMenu();
         String expectedResult = "0";
-        String actualResult = "";
+        List<String> listOfItemNames = new ArrayList<>();
+        String actualResult = restaurant.getOrderValue(listOfItemNames);
         assertEquals(expectedResult,actualResult);
     }
 
