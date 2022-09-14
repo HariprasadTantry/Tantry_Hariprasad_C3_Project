@@ -40,6 +40,20 @@ class RestaurantTest {
         assertFalse(restaurant1.isRestaurantOpen());
     }
 
+    @Test
+    public void order_value_positive_test(){
+        String expectedResult = "454";
+        String actualResult = "";
+        assertEquals(expectedResult,actualResult);
+    }
+
+    @Test
+    public void order_value_test_no_items(){
+        String expectedResult = "0";
+        String actualResult = "";
+        assertEquals(expectedResult,actualResult);
+    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
